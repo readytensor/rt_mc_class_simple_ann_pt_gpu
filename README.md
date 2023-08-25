@@ -12,7 +12,7 @@ The following are the requirements for using your data with this model:
 Here are the highlights of this implementation: <br/>
 - A flexible preprocessing pipeline built using **SciKit-Learn** and **feature-engine**. Transformations include missing value imputation, categorical encoding, outlier removal, feature selection, and feature scaling. <br/>
 - A **Artificial Neural Network (ANN)** Multiclass Classifier built using **PyTorch**. The model runs on GPU.
-- Hyperparameter-tuning using **scikit-optimize**
+- Hyperparameter-tuning using **Optuna**
 - SHAP explainer using the **shap** package
 - **FASTAPI** inference service for online inferences.
 Additionally, the implementation contains the following features:
@@ -38,7 +38,7 @@ The following is the directory structure of the project:
   - **`schema/`**: for schema handler script. This script contains the class that provides helper getters/methods for the data schema.
   - **`preprocessing/`**: for data preprocessing scripts including the feature and target encoding/transformations. We use **Scikit-Learn** and **feature-engine** for preprocessing.
   - **`prediction/`**: Scripts for the Artificial Neural Network (ANN) Multiclass Classifier model implemented using PyTorch.
-  - **`hyperparameter_tuning/`**: for hyperparameter-tuning (HPT) functionality implemented using **Scikit-Optimize** for the model.
+  - **`hyperparameter_tuning/`**: for hyperparameter-tuning (HPT) functionality implemented using **Optuna** for the model.
   - **`xai/`**: for explainable AI functionality implemented using **Shap** library. This provides local explanations for predictions.
   - **`serve.py`**: This script is used to serve the model as a REST API using **FastAPI**. It loads the artifacts and creates a FastAPI server to serve the model. It provides 3 endpoints: `/ping`, `/infer`, and `/explain`. The `/ping` endpoint is used to check if the server is running. The `/infer` endpoint is used to make predictions. The `/explain` endpoint is used to get local explanations for the predictions.
   - **`serve_utils.py`**: This script contains utility functions used by the `serve.py` script.
