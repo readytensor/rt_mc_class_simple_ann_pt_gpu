@@ -394,9 +394,8 @@ class Classifier:
             np.ndarray: The predicted class labels.
         """
         class_probs = self._predict(inputs.values)
-        class1_probs = class_probs[:, 1]
-        predicted_labels = (class1_probs >= 0.5).astype(int)
-        return np.squeeze(predicted_labels)
+        predicted_labels = np.argmax(class_probs, axis=1)
+        return predicted_labels
 
     def predict_proba(self, inputs: pd.DataFrame) -> np.ndarray:
         """
